@@ -11,11 +11,13 @@ use PDOException;
 
 class UserDataService
 {
+    private $db;
     private $conn;
     
-    public function __construct($conn)
+    public function __construct()
     {
-        $this->conn = $conn;
+        $this->db = new DatabaseConnection();
+        $this->conn = $this->db->getConnection();
     }
 
     /* // Declare Connection Variables
@@ -38,7 +40,7 @@ class UserDataService
             $username = $userAttempt->getUsername();
             $password = $userAttempt->getPassword();
             
-            $result = $this->conn->prepare('SELECT USER_ID, FIRSTNAME, LASTNAME, USERNAME, PASSWORD, EMAIL, PHONE, ROLE FROM `users` WHERE USERNAME = :username AND PASSWORD = :password');
+            $result = $this->conn->prepare('SELECT USER_ID, FIRSTNAME, LASTNAME, USERNAME, PASSWORD, EMAIL, PHONE, ROLE FROM `user` WHERE USERNAME = :username AND PASSWORD = :password');
             $result->bindParam(':username', $username);
             $result->bindParam(':password', $password);
             $result->execute();
@@ -119,6 +121,11 @@ class UserDataService
                 "message" => $dbe->getMessage()
             )); */
             return false;
+        }
+        finally
+        {
+            // Close the PDO Connection
+            $this->conn = null;
         }
     }
 }

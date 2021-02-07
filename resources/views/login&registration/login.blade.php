@@ -2,7 +2,7 @@
 @section('title', 'Login Page')
 
 @section('content')
-		<form action = "login" method = "POST">
+		<form action = "signin" method = "POST">
 			<input type = "hidden" name = "_token" value = "<?php echo csrf_token()?>"/>
 			<h2>Login</h2>
 			<table>

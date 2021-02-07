@@ -7,6 +7,11 @@ use App\Services\Data\UserDataService;
 class SecurityService
 {
 
+    /**
+     * Authenticate function
+     * @param userCredentials $usrAttmpt
+     * @return boolean
+     */
     public function authenticate(userCredentials $usrAttmpt)
     {
         // MyLogger2::info("Enter SecurityService.authenticate()");

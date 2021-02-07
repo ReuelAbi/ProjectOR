@@ -38,7 +38,7 @@ class EntryController extends Controller
             {return view('error.suspended');}
 
             // Creating sessions here to get the user's ID & Role.
-            Session::put('userID', $userData['ID']);
+            Session::put('userID', $userData['USER_ID']);
             Session::put('role', $userData['ROLE']);
             Session::put('principal', 'true');
 
@@ -58,7 +58,7 @@ class EntryController extends Controller
             // MyLogger2::error("Error in UserController's onLogin()", array("message" => $e->getMessage()));
 
             // Return the Error Page:
-            return view('error.commonError');
+            return view('error.commonError')->with('message', $e->getMessage());
         }
     }
 

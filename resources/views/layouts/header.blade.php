@@ -21,10 +21,13 @@
             <a class="nav-link" href='home'>Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="myportfolio">Portfolio</a>
+            <a class="nav-link" href="about">About Operation Redemption</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="profile">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="survey">Survey</a>
           </li>
           <li class="nav-item">
           	<a class="nav-link" href='logout'>Log Out</a>

@@ -8,6 +8,6 @@
 		<br>
 		<?php echo $message; ?>
 		
-		<a href="welcome">Login</a>
+		<a href="login">Login</a>
 	</div>
 @endsection

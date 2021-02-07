@@ -13,11 +13,11 @@ class UserBusinessService
     {
 //         MyLogger2::info("Enter UserBusinessService.register()");
         
-        $db = new DatabaseConnection();
-        $conn = $db->getConnection();
+        /* $db = new DatabaseConnection();
+        $conn = $db->getConnection(); */
         
         // Call the DAO to create a User in the database
-        $userData = new UserDataService($conn);
+        $userData = new UserDataService();
         $isRegistered = $userData->create($user);
         
         if ($isRegistered)

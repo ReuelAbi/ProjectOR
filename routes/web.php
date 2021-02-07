@@ -20,7 +20,9 @@ Route::get('/', function ()
     return view('home.home');
 });
 
-/********************************* Login and Registration Routes START *********************************/
+/**
+ * ******************************* Login and Registration Routes START ********************************
+ */
 
 Route::get('/login', function ()
 {
@@ -37,3 +39,21 @@ Route::post('/register', 'EntryController@onRegister');
 Route::post('/signin', 'EntryController@onLogin');
 
 /********************************* Login and Registration Routes END *********************************/
+
+/********************************* About Page Routes START *********************************/
+
+Route::get('/about', function()
+{
+   return view('about.about'); 
+});
+
+/********************************* About Page Routes END *********************************/
+
+/********************************* Survey Routes START *********************************/
+
+Route::get('/survey', function()
+{
+    return view('survey&phases.survey');
+});
+
+/********************************* Survey Routes END *********************************/
