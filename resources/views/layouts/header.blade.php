@@ -3,7 +3,7 @@
 
   <!-- Navbar brand -->
   <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-  	<img class="img-thumbnail" src="https://logodix.com/logo/1597047.gif" height="100px" width="100px"/>
+  	<img class="img-thumbnail" src="https://design4users.com/wp-content/uploads/2017/07/animation_logo_design.gif.pagespeed.ce.1-SWR6QNEf.gif" height="100px" width="150px"/>
   </a>
  
   <!-- Collapse button -->
@@ -15,17 +15,14 @@
   <div class="collapse navbar-collapse" id="navbarContent">
 	
     <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-    @if(Session::get('principal'))
+    <ul class="navbar-nav mr-auto">    
           <li class="nav-item active">
-            <a class="nav-link" href='home'>Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="home">Home<!-- <span class="sr-only">(current)</span> --></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about">About Operation Redemption</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="profile">My Profile</a>
-          </li>
+	@if(Session::get('principal'))
           <li class="nav-item">
             <a class="nav-link" href="survey">Survey</a>
           </li>

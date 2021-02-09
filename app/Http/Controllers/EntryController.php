@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Exception;
 use App\Models\userCredentials;
@@ -13,6 +14,11 @@ use App\Services\Utility\MyLogger2;
 class EntryController extends Controller
 {
 
+    /**
+     * Login the user
+     * @param Request $request
+     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
+     */
     public function onLogin(Request $request)
     {
         // MyLogger2::info("Entered UserController's onLogin()");
@@ -26,13 +32,16 @@ class EntryController extends Controller
 
             $service = new SecurityService();
             $userData = $service->authenticate($userAttempt);
+            
+            // translate query array into object
+            $userData = get_object_vars($userData);
 
             // If no such User was registered
             if (! $userData)
-                return view('login.loginStatus')->with('message', "Login Failure");
-
-            // translate query array into object
-            $userData = get_object_vars($userData);
+            {
+                // return view('home.home')->with('principal', "false");
+                return view('home.home')->with('firstName', $userData['FIRSTNAME'])->with('principal', 'false');
+            }
 
             if ($userData['ROLE'] == "suspended")
             {return view('error.suspended');}
@@ -62,6 +71,11 @@ class EntryController extends Controller
         }
     }
 
+    /**
+     * Register the user
+     * @param Request $request
+     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
+     */
     public function onRegister(Request $request)
     {
         MyLogger2::info("Entered UserController's onRegister()");
@@ -106,6 +120,34 @@ class EntryController extends Controller
             // MyLogger2::error("Error UserController's onRegister()", array("message" => $e->getMessage()));
 
             return view('error.commonError')->with('message', $e->getMessage());
+        }
+    }
+
+    /**
+     * Log out the User by killing all the session variables.
+     *
+     * @return route: /
+     */
+    public function onLogout()
+    {
+        MyLogger2::info("Entered UserController's onLogout()");
+
+        try
+        {
+            // Flush out everything from a session:
+            // session()->flush();
+            Session::flush();
+
+            // MyLogger2::info("Exiting UserController's onLogout()");
+
+            // Return the logged in Home page:
+            // return redirect()->route('welcome');
+            return Redirect::to('');
+        }
+        catch (Exception $e)
+        {
+            // Throw the error code
+            throw $e->getCode();
         }
     }
 }

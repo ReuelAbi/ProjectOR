@@ -8,8 +8,13 @@ use Monolog\Handler\StreamHandler;
 
 class MyLogger2 implements ILogger
 {
+    // Declare static variable with null value
     private static $logger = null;
     
+    /**
+     * 
+     * @return \Monolog\Logger
+     */
     public static function getLogger()
     {
         if (self::$logger == null)

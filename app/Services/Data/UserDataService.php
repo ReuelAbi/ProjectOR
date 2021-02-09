@@ -11,26 +11,22 @@ use PDOException;
 
 class UserDataService
 {
+    // Declare two variables for connection's sake
     private $db;
     private $conn;
     
     public function __construct()
     {
+        // Call the Database Connection and return the Connection
         $this->db = new DatabaseConnection();
         $this->conn = $this->db->getConnection();
     }
-
-    /* // Declare Connection Variables
-    private $db;
-    private $conn;
     
-    // Non-default constructor for Connection
-    public function __construct()
-    {
-        $this->db = new DatabaseConnection();
-        $this->conn = $this->db->getConnection();
-    } */
-    
+    /**
+     * Read or Verify the User's credentials for verification
+     * @param userCredentials $userAttempt
+     * @return mixed|boolean
+     */
     public function findbyUserCredentials(userCredentials $userAttempt)
     {
 //         MyLogger2::info("Enter UserDataService.findbyUser()");
@@ -45,13 +41,16 @@ class UserDataService
             $result->bindParam(':password', $password);
             $result->execute();
             
+            // Check if the Result has any rows
             if($result->rowCount() == 1)
             {
+                // Return the result object
 //                 MyLogger2::info("Exit UserDataService.findByUser() with true");
                 return $result->fetch(PDO::FETCH_OBJ);
             }
             else
             {
+                // Return the boolean value false if there was no verification
 //                 MyLogger2::info("Exit UserDataService.findByUser() with false");
                 return false;
             }
@@ -84,7 +83,7 @@ class UserDataService
             $phone = $usr->getPhone();
             $role = $usr->getRole();
             
-            // change this to :variable for bindparam
+            // Type the MySQL Query here
             $result = $this->conn->prepare("INSERT INTO `user` (`USER_ID`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `PASSWORD`, `EMAIL`, `PHONE`, `ROLE`) VALUES(:id, :firstname, :lastname, :username, :password, :email, :phone, :role)");
             $result->bindParam(':id', $id);
             $result->bindParam(':firstname', $firstName);
@@ -99,11 +98,13 @@ class UserDataService
             // Check if the result has any rows
             if($result->rowCount() == 1)
             {
+                // Return the User
 //                 MyLogger2::info("Exit UserDataService.create() with true");
                 return $usr;
             }
             else
             {
+                // Return the boolean value false
 //                 MyLogger2::info("Exit UserDataService.create() with false");
                 return false;
             }

@@ -32,7 +32,7 @@ class DatabaseConnection
             $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            /* // Use mysqli connection
+            /* // Use mysqli connection for Cloud hosting
             $conn = mysqli_connect($servername, $username, $password, $dbname, $port);
             
             // Check connection
@@ -45,7 +45,7 @@ class DatabaseConnection
             return $conn;
         }
         catch (PDOException $e)
-        {
+        { 
             Log::error("Exception: ", array(
                 "message" => $e->getMessage()
             ));

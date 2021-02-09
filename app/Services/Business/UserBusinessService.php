@@ -8,13 +8,14 @@ use App\Services\Utility\DatabaseConnection;
 
 class UserBusinessService
 {
-    
+    /**
+     * Register the User
+     * @param User $user
+     * @return boolean
+     */
     public function register(User $user)
     {
 //         MyLogger2::info("Enter UserBusinessService.register()");
-        
-        /* $db = new DatabaseConnection();
-        $conn = $db->getConnection(); */
         
         // Call the DAO to create a User in the database
         $userData = new UserDataService();
@@ -22,10 +23,12 @@ class UserBusinessService
         
         if ($isRegistered)
         {
+            // Return the User value
 //             MyLogger2::info("Exit UserBusinessService.register() with true.");
-            return true;
+            return $isRegistered;
         }
         
+        // Return boolean value false if registration fails
 //         MyLogger2::info("Exit UserBusinessService.register() with false.");
         return false;
     }

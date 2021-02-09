@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EntryController;
+
 /*
  * |--------------------------------------------------------------------------
  * | Web Routes
@@ -15,7 +17,13 @@ Route::get('/laravel', function ()
     return view('welcome');
 });
 
+/********************************* Home Route START *********************************/
 Route::get('/', function ()
+{
+    return view('home.home');
+});
+
+Route::get('/home', function ()
 {
     return view('home.home');
 });
@@ -37,6 +45,8 @@ Route::get('/registration', function ()
 Route::post('/register', 'EntryController@onRegister');
 
 Route::post('/signin', 'EntryController@onLogin');
+
+Route::get('/logout', 'EntryController@onLogout');
 
 /********************************* Login and Registration Routes END *********************************/
 
