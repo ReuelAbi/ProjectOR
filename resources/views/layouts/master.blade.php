@@ -24,9 +24,13 @@
     <link rel="stylesheet" href="resources/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="resources/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/assets/css/Header-Dark.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="resources/assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark-1.css">
     <link rel="stylesheet" href="resources/assets/css/Login-Form-Dark.css">
 </head>
 
@@ -40,8 +44,14 @@
             <p>Copyright ©&nbsp;OperationRedemption 2021</p>
         </div>
     </footer>
+    
+    <script src="resources/assets/js/jquery.min.js"></script>
+    <script src="resources/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="resources/assets/js/grayscale.js"></script>
 <!-- @include('layouts.footer') -->
 </body>
+
 <!-- <script src = "./interestGroup/dataTable.js"></script> -->
 <script>
 $(document).ready( function () {

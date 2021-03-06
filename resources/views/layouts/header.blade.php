@@ -17,10 +17,11 @@
 					class="nav-link active js-scroll-trigger" href="about">About</a></li>
 				<li class="nav-item nav-link js-scroll-trigger"><a
 					class="nav-link js-scroll-trigger"
-					href="login&amp;registration.html">Login/Register</a></li>
+					href="login">Login/Register</a></li>
 				<li class="nav-item nav-link js-scroll-trigger"><a
 					class="nav-link js-scroll-trigger" href="#contact">contact</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
+<br>
