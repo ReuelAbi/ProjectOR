@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EntryController;
+use App\Http\Controllers\SurveyController;
 
 /*
  * |--------------------------------------------------------------------------
@@ -61,9 +62,6 @@ Route::get('/about', function()
 
 /********************************* Survey Routes START *********************************/
 
-Route::get('/survey', function()
-{
-    return view('survey&phases.survey');
-});
+Route::post('/survey', 'SurveyController@onPullSurvey');
 
 /********************************* Survey Routes END *********************************/

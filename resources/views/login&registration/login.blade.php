@@ -15,13 +15,14 @@
             </div>
         </div>
         <section class="login-dark" style="height: 500px;padding: 0px;margin: 10px;">
-            <form action="login" method="POST" style="background: rgba(255,255,255,0.61);filter: grayscale(0%);" target="_blank">
-            <input class="form-control" type="hidden" value = "<?php echo csrf_token()?>">
+            <form action="signin" method="POST" style="background: rgba(255,255,255,0.61);filter: grayscale(0%);">
+            <input class="form-control" type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 <h2 class="visually-hidden">Login Form</h2>
                 <div class="illustration"><i class="fa fa-user" style="color: rgb(122,123,125);"></i></div>
-                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" style="font-family: Cabin, sans-serif;"></div>
-                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" style="font-family: Cabin, sans-serif;"></div>
-                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
+                <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Username" style="font-family: Cabin, sans-serif;"/></div>
+                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" style="font-family: Cabin, sans-serif;"/></div>
+                <!-- <input type="submit" value="login"/> -->
+                <div class="mb-3"><button class="btn btn-primary d-block w-100"	type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
             </form>
         </section>
 </div>

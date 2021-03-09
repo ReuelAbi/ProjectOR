@@ -20,6 +20,10 @@
 					href="login">Login/Register</a></li>
 				<li class="nav-item nav-link js-scroll-trigger"><a
 					class="nav-link js-scroll-trigger" href="#contact">contact</a></li>
+				@if(Session::get('principal'))
+				<li class="nav-item nav-link js-scroll-trigger"><a
+					class="nav-link js-scroll-trigger" href="logout">Log Out</a></li>
+				@endif	
 			</ul>
 		</div>
 	</div>

@@ -9,7 +9,11 @@
                     <div class="col-lg-8 mx-auto" style="border-color: rgb(255, 255, 255);border-top-color: rgb(255,;border-right-color: 255,;border-bottom-color: 255);border-left-color: 255,;">
                         <h1 class="brand-heading">Operation Redemption</h1>
                         <div>
-                            <p class="intro-text">Project engaging in society's pain<br>To help in the process of redemption</p><button class="btn btn-primary" type="button" style="font-family: Cabin, sans-serif;border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;background: rgb(0,0,0);color: var(--light);border-color: rgb(0,0,0);">Start</button>
+                            <p class="intro-text">Project engaging in society's pain<br>To help in the process of redemption</p>
+                            <form action="survey" method="POST">
+                            <input type = "hidden" name = "_token" value = "{{ csrf_token() }}"/>
+                            <button class="btn btn-primary" type="submit" style="font-family: Cabin, sans-serif;border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;background: rgb(0,0,0);color: var(--light);border-color: rgb(0,0,0);">Start</button>
+                            </form>
                         </div><a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa fa-angle-double-down animated"></i></a>
                     </div>
                 </div>
