@@ -1,9 +1,15 @@
 @extends('layouts.master') 
 @section('title', 'Login Page')
 
+@section('stylesheets')
+<link rel="stylesheet" href="resources/assets/css/Login-Form-Clean.css">
+<link rel="stylesheet" href="resources/assets/css/Login-Form-Dark-1.css">
+<link rel="stylesheet" href="resources/assets/css/Login-Form-Dark.css">
+@endsection
+
 @section('content')
 
-<div class="container text-start" style="background-image: url('assets/img/intro-bg.jpg');height: 1000px;padding: 25px;margin: 0px;">
+<div class="container text-start" style="background-image: url('resources/assets/img/intro-bg.jpg');height: 1000px;padding: 25px;margin: 0px;">
         <div class="row" style="margin: 6px;">
             <div class="col offset-lg-0">
                 <h2 class="text-center">Why Log In?</h2><p class="text-center">If a user can log in and have an account, then you can be given the right resources, right connections according to your need.</p>

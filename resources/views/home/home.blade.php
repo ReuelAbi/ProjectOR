@@ -2,7 +2,7 @@
 @section('title', 'Home - OperationRedemption')
 
 @section('content')    
-    <header class="masthead" style="background-image:url('assets/img/intro-bg.jpg');">
+    <header class="masthead" style="background-image:url('resources/assets/img/intro-bg.jpg');">
         <div class="intro-body">
             <div class="container">
                 <div class="row">

@@ -65,3 +65,11 @@ Route::get('/about', function()
 Route::post('/survey', 'SurveyController@onPullSurvey');
 
 /********************************* Survey Routes END *********************************/
+
+Route::post('/flowplan', 'SurveyController@onPullSurvey');
+
+// Route::get('/resources', 'SurveyController@onViewResources');
+
+Route::get('/resource-list', 'ResourceController@onViewResources');
+
+Route::get('/church-list', 'ResourceController@onViewResources');
