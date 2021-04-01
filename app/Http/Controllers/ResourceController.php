@@ -29,4 +29,27 @@ class ResourceController extends Controller
             throw $e->getMessage();
         }        
     }
+    
+    public function onViewChurces(Request $request)
+    {
+        try
+        {
+            // Call the Business Service to gather all Churches
+            $service = new ResourceBusinessService();
+            $churchList = $service->gatherAllChurches();
+            
+            // If there is no data in the database
+            if (!$churchList)
+            {
+                return view('error.commonError')->with('message', $churchList);
+            }
+            else
+                return view('help_lists.churches')->with('churches', $churchList);
+            
+        }
+        catch(Exception $e)
+        {
+            throw $e->getMessage();
+        }
+    }
 }

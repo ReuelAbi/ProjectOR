@@ -72,4 +72,4 @@ Route::post('/flowplan', 'SurveyController@onPullSurvey');
 
 Route::get('/resource-list', 'ResourceController@onViewResources');
 
-Route::get('/church-list', 'ResourceController@onViewResources');
+Route::get('/church-list', 'ResourceController@onViewChurces');
