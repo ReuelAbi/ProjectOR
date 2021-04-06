@@ -24,7 +24,12 @@
                 </div>
                 <div class="col-md-4 col-lg-3 item" data-bss-hover-animate="pulse" style="padding: 25px;border-radius: 40px;margin: 10px;background: #ffffff;box-shadow: 6px 6px 5px;border-style: solid;border-color: rgb(0,0,0);height: 390px;width: 549.4px;">
                     <h4 style="text-align: center;color: rgb(0,0,0);">{{ $userInfo['FIRSTNAME'] }} {{ $userInfo['LASTNAME'] }}</h4>
-                    <p class="text-break" style="color: rgb(0,0,0);">@if($userInfo['ROLE'] == 0)Admin@else{User}@endif</p>
+                    <p class="text-break" style="color: rgb(0,0,0);">
+                    @if($userInfo['ROLE'] == 0)
+                    	Admin
+                    @else
+                    	User
+                    @endif</p>
                 </div>
             </div>
         </div>
