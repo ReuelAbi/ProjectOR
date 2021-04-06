@@ -93,7 +93,7 @@ class EntryController extends Controller
             $password = $request->input('password');
             $email = $request->input('email');
             $phone = $request->input('phone');
-            $role = $request->input('role');
+            $role = 0;
 
             // Create a User object and populate it with the requested data.
             $user = new User($id, $firstName, $lastName, $username, $password, $email, $phone, $role);
@@ -120,6 +120,32 @@ class EntryController extends Controller
             // MyLogger2::error("Error UserController's onRegister()", array("message" => $e->getMessage()));
 
             return view('error.commonError')->with('message', $e->getMessage());
+        }
+    }
+    
+    /**
+     * 
+     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function onViewProfile()
+    {
+        try
+        {
+            // Store the User's ID from Session
+            $userID = Session::get('userID');
+            
+            // Gather the array containing the details of the user. 
+            $userData = (new UserBusinessService())->gather($userID);
+            
+            // Translate array into an object
+            $userInfo = get_object_vars($userData);
+            
+            // Return the User's info
+            return view('login&registration.profile')->with('userInfo', $userInfo);
+        }
+        catch (Exception $e)
+        {
+            throw $e->getCode();
         }
     }
 

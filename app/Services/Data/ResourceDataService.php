@@ -2,6 +2,7 @@
 namespace App\Services\Data;
 
 use App\Services\Utility\DatabaseException;
+use App\Models\Organization;
 
 class ResourceDataService
 {   
@@ -44,6 +45,35 @@ class ResourceDataService
              "message" => $e->getMessage()
              )); */
             throw $dbe->getMessage();
+        }
+    }
+    
+    /**
+     * 
+     * @param Organization $org
+     * @return Organization|boolean
+     */
+    public function findById(Organization $org)
+    {
+        try
+        {
+            $id = $org->getId();
+            
+            // Create the MySQL Statement
+            $result = $this->conn->prepare("SELECT * FROM `resource` WHERE RESOURCE_ID = :id");
+            $result->bindParam('id', $id);
+            $result->execute();
+            
+            // Check if there was any result
+            if($result->rowCount())
+                return $result->fetch();
+            else
+                return false;
+        }
+        catch(DatabaseException $db)
+        {
+            // Throw a message
+            throw $db->getMessage();
         }
     }
 }

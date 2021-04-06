@@ -13,14 +13,12 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ms-auto">
+				@if(Session::get('principal'))
 				<li class="nav-item nav-link js-scroll-trigger"><a
-					class="nav-link js-scroll-trigger" href="#about">About</a></li>
+					class="nav-link js-scroll-trigger" href="profile">Profile</a></li>
+				@endif
 				<li class="nav-item nav-link js-scroll-trigger"><a
-					class="nav-link js-scroll-trigger" href="resource-list">All
-						Resources</a></li>
-				<li class="nav-item nav-link js-scroll-trigger"><a
-					class="nav-link js-scroll-trigger" href="church-list">
-						Churches</a></li>
+					class="nav-link js-scroll-trigger" href="home#about">About</a></li>
 				<li class="nav-item dropdown" style="padding-top: 8px;"><a
 					class="dropdown-toggle nav-link" aria-expanded="false"
 					data-bs-toggle="dropdown">Resources</a>
@@ -32,7 +30,7 @@
 							style="color: rgb(128, 128, 128);">All Resources</a>
 					</div></li>
 				<li class="nav-item nav-link js-scroll-trigger"><a
-					class="nav-link js-scroll-trigger" href="#contact">contact</a></li>	
+					class="nav-link js-scroll-trigger" href="home#contact">contact</a></li>	
 				@if(!Session::get('principal'))
 				<li class="nav-item nav-link js-scroll-trigger"><a
 					class="nav-link js-scroll-trigger"

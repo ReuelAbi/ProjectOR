@@ -11,9 +11,9 @@
 <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}" /> -->
 
 <!-- This is for the jQuery Datatable-->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> -->
   
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
 <!-- jQuery Datatable code ends -->
 
 <head>
@@ -21,27 +21,39 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="Project engaging in society's pain to help in the process of redemption for any man freely offered by God.">
-    <link rel="stylesheet" href="resources/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/css/bootstrap.min.css') }}">
+    @yield('stylesheets')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-    <link rel="stylesheet" href="resources/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="resources/assets/css/Header-Dark.css">
+    <link rel="stylesheet" href="{{ asset('resources/fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/Header-Dark.css') }}">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    @yield('stylesheets')
+    @stack('styles')
 </head>
 
 <body id="page-top">
 	@include('layouts.header')
 		@yield('content')
 	@include('layouts.footer')
+	
+	@stack('scripts')
+<!--     <script type="text/javascript" src="resources/assets/js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="{{ asset('resources/assets/js/jquery.min.js') }}"></script>
+<!--     <script type="text/javascript" src="resources/assets/bootstrap/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="{{ asset('resources/assets/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--     <script type="text/javascript" src="resources/assets/js/bs-init.js"></script> -->
+    <script type="text/javascript" src="{{ asset('resources/assets/js/bs-init.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!--     <script type="text/javascript" src="resources/assets/js/grayscale.js"></script> -->
+    <script type="text/javascript" src="{{ asset('resources/assets/js/grayscale.js') }}"></script>
 </body>
 
 <!-- <script src = "./interestGroup/dataTable.js"></script> -->
-<script>
+<!-- <script>
 $(document).ready( function () {
     $('#table_id').DataTable();
 } );
-</script>
+</script> -->
 </html>

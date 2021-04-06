@@ -7,18 +7,15 @@ use Exception;
 
 class SurveyDataService
 {
-    // Declare Variables    
-    private $db;
     private $conn;
     
     /**
      * Default Constructor - Establishing the Database Connection
      */
-    public function __construct()
+    public function __construct($conn)
     {
-        // Call the Database Connection
-        $this->db = new DatabaseConnection();
-        $this->conn = $this->db->getConnection();
+        // Assign Connection Value
+        $this->conn = $conn;
     }
     
     /**

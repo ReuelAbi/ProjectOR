@@ -11,15 +11,40 @@ use PDOException;
 
 class UserDataService
 {
-    // Declare two variables for connection's sake
-    private $db;
+    // Declare variable for connection's sake
     private $conn;
     
-    public function __construct()
+    public function __construct($conn)
     {
         // Call the Database Connection and return the Connection
-        $this->db = new DatabaseConnection();
-        $this->conn = $this->db->getConnection();
+        $this->conn = $conn;
+    }
+    
+    /**
+     * 
+     * @param $userID
+     * @throws DatabaseException
+     * @return array if true | boolean false if false
+     */
+    public function findByUserId($userID)
+    {
+        try
+        {
+            // Type a MySQL Query to get the User info using the Session's UserID
+            $result = $this->conn->prepare("SELECT * FROM user WHERE USER_ID = :userID");
+            $result->bindParam(':userID', $userID);
+            $result->execute();
+            
+            // Check if the Result exists
+            if($result->rowCount() == 1)
+                return $result->fetch(PDO::FETCH_OBJ);
+            else
+                return false;
+        }
+        catch(DatabaseException $e)
+        {
+            throw new DatabaseException("Database Exception: " . $e->getMessage(), 0, $e);
+        }
     }
     
     /**
@@ -61,11 +86,6 @@ class UserDataService
                 "message" => $e->getMessage()
             )); */
             return false;
-        }
-        finally 
-        {
-            // Close the connection
-            $this->conn = null;
         }
     }
     
@@ -122,11 +142,6 @@ class UserDataService
                 "message" => $dbe->getMessage()
             )); */
             return false;
-        }
-        finally
-        {
-            // Close the PDO Connection
-            $this->conn = null;
         }
     }
 }

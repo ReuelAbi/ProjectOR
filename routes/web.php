@@ -58,11 +58,17 @@ Route::get('/about', function()
    return view('about.about'); 
 });
 
+Route::get('/profile', 'EntryController@onViewProfile');
+
+Route::post('/org-profile', 'ResourceController@onViewProfile');
+
 /********************************* About Page Routes END *********************************/
 
 /********************************* Survey Routes START *********************************/
 
 Route::post('/survey', 'SurveyController@onPullSurvey');
+
+Route::post('viewFlowPlan', 'SurveyController@onViewPhases');
 
 /********************************* Survey Routes END *********************************/
 
@@ -72,4 +78,4 @@ Route::post('/flowplan', 'SurveyController@onPullSurvey');
 
 Route::get('/resource-list', 'ResourceController@onViewResources');
 
-Route::get('/church-list', 'ResourceController@onViewChurces');
+Route::get('/church-list', 'ResourceController@onViewChurches');

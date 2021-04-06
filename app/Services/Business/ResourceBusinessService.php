@@ -4,6 +4,7 @@ namespace App\Services\Business;
 use App\Services\Utility\DatabaseConnection;
 use App\Services\Data\ResourceDataService;
 use App\Services\Data\ChurchDataService;
+use App\Models\Organization;
 
 class ResourceBusinessService
 {
@@ -40,6 +41,20 @@ class ResourceBusinessService
         
         // Return the list of churches
         return $churchList;
+    }
+    
+    public function gatherSpecific(Organization $org)
+    {
+        // Create Database Connection
+        $this->conn = (new DatabaseConnection())->getConnection();
+        
+        // Call DAO to fetch the details of an organization by ID
+        $orgInfo = (new ResourceDataService($this->conn))->findById($org);
+        
+        // Close the PDO Connection
+        $this->conn = null;
+        
+        return $orgInfo;
     }
 }
 

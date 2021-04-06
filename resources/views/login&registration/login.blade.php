@@ -9,29 +9,28 @@
 
 @section('content')
 
-<div class="container text-start" style="background-image: url('resources/assets/img/intro-bg.jpg');height: 1000px;padding: 25px;margin: 0px;">
-        <div class="row" style="margin: 6px;">
-            <div class="col offset-lg-0">
-                <h2 class="text-center">Why Log In?</h2><p class="text-center">If a user can log in and have an account, then you can be given the right resources, right connections according to your need.</p>
+<section style="height: 730px;width: auto;margin-top: 90px;background: url(&quot;resources/assets/img/mountain_bg.jpg&quot;);padding: 30px;">
+    <div class="row justify-content-center align-items-center">
+        <div class="col" style="min-width: 280px;">
+            <section class="login-dark" style="height: 500px;padding: 0px;margin: 10px;">
+                <form action="signin" method="POST" style="background: rgba(255,255,255,0.61);filter: grayscale(0%);">
+                <input class="form-control" type="hidden" name = "_token" value = "{{ csrf_token() }}">
+                    <h2 class="visually-hidden">Login Form</h2>
+                    <div class="illustration"><i class="fa fa-user" style="color: rgb(122,123,125);"></i></div>
+                    <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Username" style="font-family: Cabin, sans-serif;"></div>
+                    <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" style="font-family: Cabin, sans-serif;"></div>
+                    <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div>
+                </form>
+            </section>
+        </div>
+        <div class="col" style="height: 175px;">
+            <div class="container" style="padding: 25px;height: 175px;">
+                <h4 style="width: auto;text-align: center;">New to Operation REdemption?</h4>
+                <p class="text-center" style="width: auto;"><a href="registration">Click Here to Register!</a></p>
             </div>
         </div>
-        <div class="row">
-            <div class="col" style="padding: 0px;height: 96.6px;">
-                <h4 class="text-center">Don't have an Account? Register Here</h4><p class="text-center"><a href="registration">Click here for registration</a></p>
-            </div>
-        </div>
-        <section class="login-dark" style="height: 500px;padding: 0px;margin: 10px;">
-            <form action="signin" method="POST" style="background: rgba(255,255,255,0.61);filter: grayscale(0%);">
-            <input class="form-control" type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                <h2 class="visually-hidden">Login Form</h2>
-                <div class="illustration"><i class="fa fa-user" style="color: rgb(122,123,125);"></i></div>
-                <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Username" style="font-family: Cabin, sans-serif;"/></div>
-                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" style="font-family: Cabin, sans-serif;"/></div>
-                <!-- <input type="submit" value="login"/> -->
-                <div class="mb-3"><button class="btn btn-primary d-block w-100"	type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
-            </form>
-        </section>
-</div>
+    </div>
+</section>
 
 @endsection
 
